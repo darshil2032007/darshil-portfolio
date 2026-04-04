@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.glow {
+  text-shadow:
+    0 0 8px #22d3ee,
+    0 0 16px #22d3ee,
+    0 0 32px #22d3ee;
+}
+
+.animated-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  background: radial-gradient(circle at 30% 30%, rgba(34,211,238,0.15), transparent 40%),
+              radial-gradient(circle at 70% 70%, rgba(59,130,246,0.15), transparent 40%),
+              #000;
+  animation: moveBg 10s infinite alternate;
+}
+
+@keyframes moveBg {
+  0% {
+    background-position: 30% 30%, 70% 70%;
+  }
+  100% {
+    background-position: 40% 40%, 60% 60%;
+  }
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #22d3ee;
+  color: black;
+}
+
+body {
+  background-color: black;
+}
+
+
+* {
+  cursor: none;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
