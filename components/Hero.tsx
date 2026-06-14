@@ -8,16 +8,13 @@ import { MdEmail } from "react-icons/md";
 import { BsRobot } from "react-icons/bs";
 
 export default function Hero() {
-
   const openAIChat = () => {
     const button = document.querySelector("#ai-chat-button") as HTMLElement;
     if (button) button.click();
   };
 
   return (
-
     <section className="relative min-h-screen flex items-center pt-24 md:pt-28 px-6 sm:px-8 lg:px-12 pb-20 md:pb-0 text-white overflow-hidden">
-
       {/* Base background */}
       <div className="absolute inset-0 bg-[#050510]" />
 
@@ -32,18 +29,14 @@ export default function Hero() {
 
       {/* Content container */}
       <div className="relative z-10 max-w-7xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-
         {/* LEFT SIDE */}
         <div>
-
           {/* Availability badge */}
           <div className="inline-block mb-6 px-4 py-2 text-xs sm:text-sm rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 backdrop-blur">
             ✨ Available for opportunities
           </div>
 
-          <p className="text-gray-400 mb-2 text-sm sm:text-base">
-            Hi, I'm
-          </p>
+          <p className="text-gray-400 mb-2 text-sm sm:text-base">Hello, I'm</p>
 
           {/* Name */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight">
@@ -57,11 +50,17 @@ export default function Hero() {
           <div className="text-lg sm:text-xl md:text-2xl font-semibold text-purple-300 mb-6">
             <TypeAnimation
               sequence={[
-                "Data Scientist",
+                "Building AI-Powered Applications",
                 2000,
-                "AI Engineer",
+                "Exploring Generative AI & RAG",
                 2000,
-                "Machine Learning Enthusiast",
+                "Data Science Enthusiast",
+                2000,
+                "Machine Learning Engineer",
+                2000,
+                "Open Source Contributor",
+                2000,
+                "Full Stack Developer",
                 2000,
               ]}
               wrapper="span"
@@ -72,14 +71,13 @@ export default function Hero() {
 
           {/* Description */}
           <p className="text-gray-400 text-sm sm:text-base max-w-lg mb-8 leading-relaxed">
-            Building intelligent AI systems and data-driven applications.
-            Passionate about Machine Learning, Data Science, and solving
-            real-world problems using Artificial Intelligence.
+            AI/ML undergraduate passionate about Generative AI, RAG systems, and
+            Computer Vision. Building intelligent applications and contributing
+            to open source through GSSoC.
           </p>
 
           {/* Main buttons */}
           <div className="flex flex-wrap gap-3 sm:gap-4 mb-6">
-
             <Magnetic>
               <a
                 href="#projects"
@@ -110,12 +108,10 @@ export default function Hero() {
                 Contact Me
               </a>
             </Magnetic>
-
           </div>
 
           {/* AI Button */}
           <div className="flex gap-4 flex-wrap">
-
             <Magnetic>
               <button
                 onClick={openAIChat}
@@ -125,16 +121,12 @@ export default function Hero() {
                 Ask AI About Me
               </button>
             </Magnetic>
-
           </div>
-
         </div>
 
         {/* RIGHT SIDE IMAGE */}
         <div className="flex justify-center mt-16 md:mt-0">
-
           <div className="relative w-[260px] h-[260px] sm:w-[320px] sm:h-[320px] md:w-[380px] md:h-[380px] lg:w-[420px] lg:h-[420px] flex items-center justify-center">
-
             {/* Glow */}
             <div className="absolute w-full h-full rounded-full bg-gradient-to-r from-purple-500 via-cyan-400 to-purple-500 blur-3xl opacity-30 animate-pulse"></div>
 
@@ -151,7 +143,6 @@ export default function Hero() {
 
             {/* Profile image */}
             <div className="relative w-[85%] h-[85%] rounded-full overflow-hidden border border-purple-500/40 shadow-2xl">
-
               <Image
                 src="/hero-avatar.jpg"
                 alt="Darshil Avatar"
@@ -159,19 +150,13 @@ export default function Hero() {
                 className="object-cover"
                 priority
               />
-
             </div>
-
           </div>
-
         </div>
-
       </div>
 
       {/* Smooth blend to next section */}
       <div className="absolute bottom-0 left-0 w-full h-32 sm:h-40 bg-gradient-to-b from-transparent to-[#050510]"></div>
-
     </section>
-
   );
 }

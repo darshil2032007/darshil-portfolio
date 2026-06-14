@@ -2,25 +2,25 @@
 
 import { FaBrain, FaDatabase } from "react-icons/fa";
 import { BsCpu } from "react-icons/bs";
-import { TbStack2 } from "react-icons/tb";
-import { SiFastapi } from "react-icons/si";
 import { GiArtificialIntelligence } from "react-icons/gi";
 import { FiBarChart2 } from "react-icons/fi";
+import { BsChatDots } from "react-icons/bs";
+import { FaCode } from "react-icons/fa";
+import { SiOpencv } from "react-icons/si";
 
 export default function Skills() {
 
   const skills = [
-    { name: "GenAI", icon: <FaBrain />, color: "from-purple-500 to-purple-400" },
-    { name: "Machine Learning", icon: <BsCpu />, color: "from-blue-500 to-cyan-400" },
-    { name: "NLP", icon: <TbStack2 />, color: "from-pink-500 to-red-400" },
-    { name: "RAG", icon: <FaDatabase />, color: "from-green-500 to-emerald-400" },
-    { name: "Vector DB", icon: <FaDatabase />, color: "from-orange-500 to-yellow-400" },
-    { name: "FastAPI", icon: <SiFastapi />, color: "from-cyan-500 to-blue-400" },
-    { name: "AI Systems", icon: <GiArtificialIntelligence />, color: "from-purple-500 to-indigo-400" },
-    { name: "Data Science", icon: <FiBarChart2 />, color: "from-cyan-500 to-blue-400" },
-    { name: "Deep Learning", icon: <FaBrain />, color: "from-pink-500 to-purple-500" },
-  ];
-
+  { name: "Generative AI", icon: <FaBrain />, color: "from-purple-500 to-purple-400" },
+  { name: "Machine Learning", icon: <BsCpu />, color: "from-blue-500 to-cyan-400" },
+  { name: "Computer Vision", icon: <SiOpencv />, color: "from-pink-500 to-red-400" },
+  { name: "RAG Systems", icon: <FaDatabase />, color: "from-green-500 to-emerald-400" },
+  { name: "LLM Integration", icon: <GiArtificialIntelligence />, color: "from-orange-500 to-yellow-400" },
+  { name: "Prompt Engineering", icon: <BsChatDots />, color: "from-cyan-500 to-blue-400" },
+  { name: "Data Science", icon: <FiBarChart2 />, color: "from-purple-500 to-indigo-400" },
+  { name: "Deep Learning", icon: <FaBrain />, color: "from-pink-500 to-purple-500" },
+  { name: "Full Stack Dev", icon: <FaCode />, color: "from-cyan-500 to-blue-400" },
+];
   return (
 
     <section
