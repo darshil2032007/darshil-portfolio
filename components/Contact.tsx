@@ -12,16 +12,22 @@ import {
 import { SiLeetcode } from "react-icons/si";
 import { FaPaperPlane } from "react-icons/fa";
 
+type StatusType = "idle" | "sending" | "success" | "error";
+
 export default function Contact() {
   const form = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState("");
+  const [statusType, setStatusType] = useState<StatusType>("idle");
+  const [isSending, setIsSending] = useState(false);
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!form.current) return;
+    if (!form.current || isSending) return;
 
+    setIsSending(true);
     setStatus("Sending...");
+    setStatusType("sending");
 
     emailjs
       .sendForm(
@@ -33,13 +39,25 @@ export default function Contact() {
       .then(
         () => {
           setStatus("Message sent successfully!");
+          setStatusType("success");
           form.current?.reset();
         },
         () => {
           setStatus("Failed to send message. Try again.");
+          setStatusType("error");
         },
-      );
+      )
+      .finally(() => {
+        setIsSending(false);
+      });
   };
+
+  const statusColor =
+    statusType === "success"
+      ? "text-green-400"
+      : statusType === "error"
+        ? "text-red-400"
+        : "text-gray-400";
 
   return (
     <section
@@ -234,16 +252,30 @@ export default function Contact() {
 
             <button
               type="submit"
-              className="w-full py-3 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg hover:opacity-90 transition flex items-center justify-center gap-2 text-sm sm:text-base"
+              disabled={isSending}
+              className={`w-full py-3 rounded-lg transition flex items-center justify-center gap-2 text-sm sm:text-base ${
+                isSending
+                  ? "bg-gray-700 opacity-60 cursor-not-allowed"
+                  : "bg-gradient-to-r from-purple-500 to-purple-600 hover:opacity-90"
+              }`}
             >
-              <FaPaperPlane />
-              Send Message
+              {isSending ? (
+                <>
+                  <span className="h-4 w-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+                  Sending...
+                </>
+              ) : (
+                <>
+                  <FaPaperPlane />
+                  Send Message
+                </>
+              )}
             </button>
 
             {/* Status */}
 
             {status && (
-              <p className="text-center text-gray-400 text-sm">{status}</p>
+              <p className={`text-center text-sm ${statusColor}`}>{status}</p>
             )}
           </form>
         </div>
